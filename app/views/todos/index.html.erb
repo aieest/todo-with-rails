@@ -1,0 +1,26 @@
+
+<main class="action-list-parent">
+
+<div class="action-list-header">
+    <h1 class="main-header">Action list</h1>
+    <%= link_to '', new_todo_path, class: 'new-todo fa-solid fa-plus' %>
+</div>
+
+<% @todos.each do |todo| %>
+
+  <div class="action-list-body <%= todo.rating %>" >
+
+    <h1 class="secondary-header"><%= todo.action %></h1>
+
+     <section class="action-btns-container">
+        <% todo.rating %>
+        <%= link_to '', edit_todo_path(todo), class: 'fa-solid fa-wrench' %> <!-- EDIT BTN -->
+        <%= link_to '', todo_path(todo), class: 'fa-solid fa-eye' %> <!-- VIEW BTN -->
+        <%= link_to '', todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa-solid fa-trash' %> <!-- DELETE BTN -->
+    </section>
+
+  </div>
+
+<% end %>
+
+</main>
